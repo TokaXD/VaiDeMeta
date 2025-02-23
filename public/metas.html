@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vai de Meta - Metas</title>
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <link rel="stylesheet" href="css/metas.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="layout-container">
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <h2>Vai de Meta</h2>
+        </div>
+        <nav class="sidebar-nav">
+          <ul>
+            <li>
+              <a href="/dashboard.html"
+                ><i class="fas fa-chart-line"></i>Dashboard</a
+              >
+            </li>
+            <li class="active">
+              <a href="/metas.html"><i class="fas fa-tasks"></i>Metas</a>
+            </li>
+            <li>
+              <a href="/perfil.html"><i class="fas fa-user"></i>Perfil</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="sidebar-footer">
+          <button id="logoutBtn">
+            <i class="fas fa-sign-out-alt"></i>Sair
+          </button>
+        </div>
+      </aside>
+      <main class="main-content">
+        <div class="metas-container">
+          <div class="metas-header">
+            <h1>Gerenciamento de Metas</h1>
+          </div>
+          <div class="filters-section">
+            <div class="filter-group">
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Buscar metas..."
+              />
+              <select id="statusFilter">
+                <option value="todas">Todas as Metas</option>
+                <option value="pendentes">Pendentes</option>
+                <option value="concluidas">Concluídas</option>
+              </select>
+              <select id="deadlineFilter">
+                <option value="todas">Todos os Prazos</option>
+                <option value="hoje">Vence Hoje</option>
+                <option value="semana">Vence esta Semana</option>
+                <option value="mes">Vence este Mês</option>
+              </select>
+            </div>
+            <br />
+            <button id="addMetaBtn" class="add-meta-button">
+              Adicionar Nova Meta
+            </button>
+
+            
+          </div>
+          <br />
+          <div class="charts-grid">
+            <div class="chart-container bar-chart">
+              <h2>Próximas Metas a Vencer</h2>
+              <canvas id="deadlineChart"></canvas>
+            </div>
+          </div>
+          <div class="metas-list">
+            <div id="metasList"></div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <script src="js/metas.js"></script>
+  </body>
+</html>

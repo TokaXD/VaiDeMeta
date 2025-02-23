@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vai de Meta - Dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <link rel="stylesheet" href="css/table.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="layout-container">
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <h2>Vai de Meta</h2>
+        </div>
+        <nav class="sidebar-nav">
+          <ul>
+            <li class="active">
+              <a href="/dashboard.html"
+                ><i class="fas fa-chart-line"></i>Dashboard</a
+              >
+            </li>
+            <li>
+              <a href="/metas.html"><i class="fas fa-tasks"></i>Metas</a>
+            </li>
+            <li>
+              <a href="/perfil.html"><i class="fas fa-user"></i>Perfil</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="sidebar-footer">
+          <button id="logoutBtn">
+            <i class="fas fa-sign-out-alt"></i>Sair
+          </button>
+        </div>
+      </aside>
+      <main class="main-content">
+        <div class="dashboard-container">
+          <div class="dashboard-header">
+            <h1>Dashboard</h1>
+          </div>
+          <div class="stats-container">
+            <div class="stat-card">
+              <h3>Total de Metas</h3>
+              <p id="totalMetas">0</p>
+            </div>
+            <div class="stat-card">
+              <h3>Metas Concluídas</h3>
+              <p id="metasConcluidas">0</p>
+            </div>
+            <div class="stat-card">
+              <h3>Metas Pendentes</h3>
+              <p id="metasPendentes">0</p>
+            </div>
+          </div>
+          <div class="charts-grid">
+            <div class="chart-container donut-chart">
+              <h2>Status das Metas</h2>
+              <canvas id="metasChart"></canvas>
+            </div>
+            <div class="chart-container upcoming-goals">
+              <h2>Próximas Metas</h2>
+              <div class="goals-table">
+                <table class="upcoming-goals-table" id="upcomingGoalsTable">
+                  <thead>
+                    <tr>
+                      <th>Título</th>
+                      <th>Descrição</th>
+                      <th>Data de Vencimento</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="metas-list">
+            <div class="metas-header">
+              <h2>Minhas Metas</h2>
+              <button id="addMetaBtn" class="add-meta-button">
+                Adicionar Nova Meta
+              </button>
+            </div>
+            <div id="metasList"></div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>

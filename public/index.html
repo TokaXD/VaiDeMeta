@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vai de Meta - Login</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-container">
+            <h1>Vai de Meta</h1>
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" placeholder="Senha" required>
+                </div>
+                <button type="submit" class="login-button">Entrar</button>
+            </form>
+            <p class="register-text">Não tem uma conta? <a href="register.html">Registre-se</a></p>
+            <div id="errorMessage" class="error-message"></div>
+        </div>
+    </div>
+    <script src="js/login.js"></script>
+</body>
+</html>

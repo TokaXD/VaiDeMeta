@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vai de Meta - Perfil</title>
+    <link rel="stylesheet" href="css/perfil.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="layout-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Vai de Meta</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="/dashboard.html"><i class="fas fa-chart-line"></i>Dashboard</a></li>
+                    <li><a href="/metas.html"><i class="fas fa-tasks"></i>Metas</a></li>
+                    <li class="active"><a href="/perfil.html"><i class="fas fa-user"></i>Perfil</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <button id="logoutBtn"><i class="fas fa-sign-out-alt"></i>Sair</button>
+            </div>
+        </aside>
+        <main class="main-content">
+            <div class="profile-container">
+                <div class="profile-header">
+                    <h1>Meu Perfil</h1>
+                </div>
+                <div class="profile-card">
+                    <div class="profile-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="profile-info">
+                        <form id="profileForm">
+                            <div class="form-group">
+                                <label for="name">Nome</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="currentPassword">Senha Atual</label>
+                                <input type="password" id="currentPassword" name="currentPassword">
+                            </div>
+                            <div class="form-group">
+                                <label for="newPassword">Nova Senha</label>
+                                <input type="password" id="newPassword" name="newPassword">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirmar Nova Senha</label>
+                                <input type="password" id="confirmPassword" name="confirmPassword">
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="save-button">Salvar Alterações</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="js/perfil.js"></script>
+    <script>
+        // Get user data from localStorage
+        const user = JSON.parse(localStorage.getItem('user'));
+        const token = localStorage.getItem('token');
+    
+        // Fetch user data when page loads
+        $(document).ready(function() {
+            if (user && user.id) {
+                $.ajax({
+                    url: `/api/users/${user.id}`,
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    },
+                    success: function(userData) {
+                        // Populate form fields with user data
+                        $('#name').val(userData.name);
+                        $('#email').val(userData.email);
+                    },
+                    error: function(xhr) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Erro!',
+                            text: 'Não foi possível carregar os dados do usuário.'
+                        });
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

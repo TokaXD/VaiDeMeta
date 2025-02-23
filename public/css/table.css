@@ -1,0 +1,71 @@
+.goals-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.goals-table th,
+.goals-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.goals-table th {
+  background-color: #006666;
+  color: white;
+  font-weight: 600;
+}
+
+.goals-table tr:hover {
+  background-color: rgba(0, 133, 132, 0.1);
+}
+
+.goals-table tr:last-child td {
+  border-bottom: none;
+}
+
+.goals-table .status-pending {
+  color: #ff9800;
+  font-weight: 500;
+}
+
+.goals-table .status-completed {
+  color: #4caf50;
+  font-weight: 500;
+}
+
+.goals-table .deadline {
+  color: #666;
+  font-size: 0.9em;
+}
+
+.goals-table .actions {
+  display: flex;
+  gap: 10px;
+}
+
+.goals-table .action-button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.2s;
+}
+
+.goals-table .edit-button {
+  background-color: #008584;
+  color: white;
+}
+
+.goals-table .delete-button {
+  background-color: #dc3545;
+  color: white;
+}
+
+.goals-table .action-button:hover {
+  opacity: 0.9;
+}
