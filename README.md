@@ -93,7 +93,3 @@ npm run dev
 
 ### AI Integration
 - `POST /api/ai/completion-message` - Generate AI messages for goal completion
-
-## License
-
-This project is licensed under the ISC License.
